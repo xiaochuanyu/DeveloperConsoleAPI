@@ -11,8 +11,11 @@ import org.apache.http.HttpRequest;
 import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpResponseInterceptor;
+import org.apache.http.HttpStatus;
 import org.apache.http.HttpVersion;
+import org.apache.http.ProtocolException;
 import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.entity.GzipDecompressingEntity;
 import org.apache.http.client.params.HttpClientParams;
 import org.apache.http.conn.scheme.PlainSocketFactory;
 import org.apache.http.conn.scheme.Scheme;
@@ -21,6 +24,7 @@ import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.HttpEntityWrapper;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.DefaultRedirectStrategy;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
@@ -49,6 +53,25 @@ public class HttpClientFactory {
 
 	public static DefaultHttpClient createDevConsoleHttpClient(int timeoutMillis) {
 		DefaultHttpClient result = createDefaultClient(timeoutMillis);
+		result.setRedirectStrategy(new DefaultRedirectStrategy() {
+			@Override
+			public boolean isRedirected(HttpRequest request, HttpResponse response,
+					HttpContext context) throws ProtocolException {
+				  boolean isRedirect=false;
+		            try {
+		                isRedirect = super.isRedirected(request, response, context);
+		            } catch (ProtocolException e) {
+		                e.printStackTrace();
+		            }
+		            if (!isRedirect) {
+		                int responseCode = response.getStatusLine().getStatusCode();
+		                if (responseCode == HttpStatus.SC_MOVED_TEMPORARILY || responseCode == HttpStatus.SC_MOVED_PERMANENTLY) {
+		                    return true;
+		                }
+		            }
+		            return isRedirect;
+			}
+		});
 		result.addRequestInterceptor(new HttpRequestInterceptor() {
 			public void process(HttpRequest request, HttpContext context) {
 				addCommonHeaders(request);
@@ -90,8 +113,8 @@ public class HttpClientFactory {
 				if (encoding != null) {
 					for (HeaderElement element : encoding.getElements()) {
 						if (element.getName().equalsIgnoreCase(ENCODING_GZIP)) {
-							response.setEntity(new InflatingEntity(response.getEntity()));
-							break;
+							response.setEntity(new GzipDecompressingEntity(response.getEntity()));
+							return;
 						}
 					}
 				}
@@ -120,21 +143,4 @@ public class HttpClientFactory {
 		request.addHeader("Accept-Charset", ACCEPT_CHARSET_VALUE);
 		request.addHeader("Keep-Alive", KEEP_ALIVE_VALUE);
 	}
-
-	static class InflatingEntity extends HttpEntityWrapper {
-		public InflatingEntity(HttpEntity wrapped) {
-			super(wrapped);
-		}
-
-		@Override
-		public InputStream getContent() throws IOException {
-			return new GZIPInputStream(wrappedEntity.getContent());
-		}
-
-		@Override
-		public long getContentLength() {
-			return -1;
-		}
-	}
-
 }

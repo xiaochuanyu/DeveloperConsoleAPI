@@ -7,9 +7,6 @@ import com.github.andlyticsproject.model.Comment;
 
 public interface DevConsole {
 
-	// activity is needed for starting an authentication sub-activity
-	// which may be returned from the AccountManager (leaky...)
-	// pass null when calling from a service
 	List<AppInfo> getAppInfo() throws DevConsoleException;
 
 	List<Comment> getComments(String packageName, String developerId,

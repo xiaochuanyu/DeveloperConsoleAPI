@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.Header;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.HttpResponseException;
@@ -348,11 +349,17 @@ public class DevConsoleV2 implements DevConsole {
 			post.setEntity(new StringEntity(postData, "UTF-8"));
 
 			if (DEBUG) {
+				Log.d(TAG,url);
+				for(Header h : post.getAllHeaders())
+				{
+					Log.d(TAG, String.format("****Header**** %s=%s", h.getName(), h.getValue()));
+				}
 				CookieStore cookieStore = httpClient.getCookieStore();
 				List<Cookie> cookies = cookieStore.getCookies();
 				for (Cookie c : cookies) {
 					Log.d(TAG, String.format("****Cookie**** %s=%s", c.getName(), c.getValue()));
 				}
+				Log.d(TAG,postData);
 			}
 
 			return httpClient.execute(post, responseHandler);

@@ -91,13 +91,13 @@ public class DevConsoleV2Protocol {
 
 	void addHeaders(HttpPost post, String developerId) {
 		checkState();
-
 		post.addHeader("Host", "play.google.com");
 		post.addHeader("Connection", "keep-alive");
 		post.addHeader("Content-Type", "application/javascript; charset=UTF-8");
 		// XXX get this dynamically by fetching and executing the nocache.js file:
 		// https://play.google.com/apps/publish/v2/gwt/com.google.wireless.android.vending.developer.fox.Fox.nocache.js
-		post.addHeader("X-GWT-Permutation", "7E419416D8BA779A68D417481802D188");
+//		post.addHeader("X-GWT-Permutation", "7E419416D8BA779A68D417481802D188");
+		post.addHeader("X-GWT-Permutation", "957DB53AF590B2A25ECA024F22B6ED3F");
 		post.addHeader("Origin", "https://play.google.com");
 		post.addHeader("X-GWT-Module-Base", "https://play.google.com/apps/publish/gwt/");
 		post.addHeader("Referer", "https://play.google.com/apps/publish/?dev_acc=" + developerId);
