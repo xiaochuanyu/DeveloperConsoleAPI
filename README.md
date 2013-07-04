@@ -7,6 +7,7 @@ This has been done in making Andlytics (https://github.com/AndlyticsProject/andl
 In fact, all the original code is taken straight from Andlytics except with all android dependencies removed.
 
 Todo list:
+
 - [x] Remove all Android dependcies
 - [x] Port HTTP client to work with Apache httpclient-4.x
 - [x] Get login and app stats fetching to work
