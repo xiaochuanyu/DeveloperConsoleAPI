@@ -58,7 +58,7 @@ public class Main {
 		println("Ratings 5: " + stats.getRating5());
 		
 		stats.calcAvgRating();
-		println("Rating: " + stats.getAvgRating());
+		println("Average Rating: " + stats.getAvgRating());
 		println("Ratings count: " + stats.getRatingCount());
 		println("Total Downloads: " + stats.getTotalDownloads());
 
@@ -67,5 +67,4 @@ public class Main {
 	private static <T> void println(T t) {
 		System.out.println(t);
 	}
-
 }

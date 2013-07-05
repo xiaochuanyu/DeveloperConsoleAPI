@@ -13,8 +13,6 @@ public class AppDetails {
 	private String changelog;
 	private Date lastStoreUpdate;
 
-	private List<Link> links = new ArrayList<Link>();
-
 	public AppDetails(String description, String changelog, Date lastStoreUpdate) {
 		this.description = description;
 		this.changelog = changelog;
@@ -63,16 +61,5 @@ public class AppDetails {
 		this.lastStoreUpdate = lastStoreUpdate == null ? null : (Date) lastStoreUpdate.clone();
 	}
 
-	public List<Link> getLinks() {
-		return Collections.unmodifiableList(links);
-	}
-
-	public void setLinks(List<Link> links) {
-		this.links = links;
-	}
-
-	public void addLink(Link link) {
-		links.add(link);
-	}
 
 }
