@@ -46,6 +46,13 @@ public class AppInfo {
 		this.packageName = packageName;
 	}
 	
+	public Date getLastUpdate() {
+		return lastUpdate;
+	}
+
+	public void setLastUpdate(Date lastUpdate) {
+		this.lastUpdate = lastUpdate;
+	}
 	public String getName() {
 		return name;
 	}

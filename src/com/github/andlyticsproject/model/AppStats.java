@@ -14,8 +14,6 @@ public class AppStats {
 
 	private Date requestDate;
 
-	private int dailyDownloads;
-
 	private Integer versionCode;
 
 	private Integer rating1 = 0;
@@ -31,9 +29,6 @@ public class AppStats {
 	private float avgRating;
 
 	private int ratingCount;
-
-	// XXX should put in wrapper class
-	private String packageName;
 
 	// TODO -- do we support diffs for this?
 	private Integer numberOfErrors;
@@ -51,7 +46,6 @@ public class AppStats {
 		this.activeInstalls = appStats.activeInstalls;
 		this.numberOfComments = appStats.numberOfComments;
 		this.requestDate = appStats.requestDate;
-		this.dailyDownloads = appStats.dailyDownloads;
 		this.rating1 = appStats.rating1;
 		this.rating2 = appStats.rating2;
 		this.rating3 = appStats.rating3;
@@ -60,10 +54,9 @@ public class AppStats {
 		this.avgRating = appStats.avgRating;
 		this.ratingCount = appStats.ratingCount;
 		this.versionCode = appStats.versionCode;
-		this.packageName = appStats.packageName;
 	}
 
-	public void init() {
+	public void calcAll() {
 		calcAvgRating();
 		calcRatingCount();
 	}
@@ -100,13 +93,6 @@ public class AppStats {
 		this.requestDate = requestDate;
 	}
 
-	public int getDailyDownloads() {
-		return dailyDownloads;
-	}
-
-	public void setDailyDownloads(int dailyDownloads) {
-		this.dailyDownloads = dailyDownloads;
-	}
 
 	public void setRating(Integer rating1, Integer rating2, Integer rating3, Integer rating4,
 			Integer rating5) {
@@ -203,22 +189,11 @@ public class AppStats {
 		return dateFormat.format(getRequestDate());
 	}
 
-	public double getActiveInstallsPercent() {
-
-		if (totalDownloads < 1) {
-			return 0;
-		}
-
-		return (activeInstalls * 100.0) / totalDownloads;
-
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + activeInstalls;
-		result = prime * result + dailyDownloads;
 		result = prime * result + numberOfComments;
 		result = prime * result + ((requestDate == null) ? 0 : requestDate.hashCode());
 		result = prime * result + totalDownloads;
@@ -235,8 +210,6 @@ public class AppStats {
 			return false;
 		AppStats other = (AppStats) obj;
 		if (activeInstalls != other.activeInstalls)
-			return false;
-		if (dailyDownloads != other.dailyDownloads)
 			return false;
 		if (numberOfComments != other.numberOfComments)
 			return false;
@@ -297,14 +270,6 @@ public class AppStats {
 
 	public Integer getVersionCode() {
 		return versionCode;
-	}
-
-	public String getPackageName() {
-		return packageName;
-	}
-
-	public void setPackageName(String packageName) {
-		this.packageName = packageName;
 	}
 
 	public void setNumberOfErrors(Integer numberOfErrors) {

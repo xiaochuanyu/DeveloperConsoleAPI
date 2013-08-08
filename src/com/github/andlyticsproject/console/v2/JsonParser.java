@@ -138,6 +138,7 @@ public class JsonParser {
 		for (int i = 0; i < numberOfApps; i++) {
 			AppInfo app = new AppInfo();
 			app.setAccount(accountName);
+			app.setLastUpdate(now);
 			// Per app:
 			// 1 : { 1: package name,
 			// 2 : { 1: [{1 : lang, 2: name, 3: description, 4: ??, 5: what's new}], 2 : ?? },
@@ -313,7 +314,6 @@ public class JsonParser {
 				continue;
 			}
 			AppStats stats = new AppStats();
-			stats.setRequestDate(now);
 			if (jsonAppStats.length() < 4) {
 				// no statistics (yet?) or weird format
 				// TODO do we need differentiate?

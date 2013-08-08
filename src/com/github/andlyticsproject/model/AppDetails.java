@@ -8,20 +8,10 @@ public class AppDetails {
 	private String changelog;
 	private Date lastStoreUpdate;
 
-	public AppDetails(String description, String changelog, Date lastStoreUpdate) {
-		this.description = description;
-		this.changelog = changelog;
-		this.lastStoreUpdate = lastStoreUpdate == null ? null : (Date) lastStoreUpdate.clone();
-	}
-
 	public AppDetails(String description, String changelog, Long lastStoreUpdate) {
 		this.description = description;
 		this.changelog = changelog;
 		this.lastStoreUpdate = lastStoreUpdate == null ? null : new Date(lastStoreUpdate);
-	}
-
-	public AppDetails(String description) {
-		this(description, null, (Date) null);
 	}
 
 	public String getDescription() {
@@ -47,6 +37,5 @@ public class AppDetails {
 	public void setLastStoreUpdate(Date lastStoreUpdate) {
 		this.lastStoreUpdate = lastStoreUpdate == null ? null : (Date) lastStoreUpdate.clone();
 	}
-
 
 }

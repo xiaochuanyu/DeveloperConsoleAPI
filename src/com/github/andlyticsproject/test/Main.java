@@ -21,21 +21,23 @@ public class Main {
 		String password;
 
 		Scanner s = new Scanner(System.in);
-
+		
 		System.out.print("Username:");
 		accountName = s.next();
 		System.out.print("Password:");
 		password = s.next();
+		
 		s.close();
 
 		Log.setLevel(Log.DEBUG);
-		println("==========Logging In=============");
+		println("==========Logging in and grabbing data=============");
 		DefaultHttpClient httpClient = HttpClientFactory
 				.createDevConsoleHttpClient(DevConsoleV2.TIMEOUT);
+		
 		DevConsole console = DevConsoleV2.createForAccountAndPassword(
 				accountName, password, httpClient);
 		List<AppInfo> appInfo = console.getAppInfo();
-		println("==================================");
+		println("===================================================");
 		println("");
 		println("Number of apps: " + appInfo.size());
 		
@@ -48,7 +50,7 @@ public class Main {
 		AppDetails details = app.getDetails();
 		println("Description:\n" + details.getDescription());
 		println("Change Log: " + details.getChangelog());
-		println("Last Update: " + details.getLastStoreUpdate());
+		println("Last Store Update: " + details.getLastStoreUpdate());
 
 		AppStats stats = app.getLatestStats();
 		println("Active Installs: " + stats.getActiveInstalls());
@@ -58,7 +60,7 @@ public class Main {
 		println("Ratings 4: " + stats.getRating4());
 		println("Ratings 5: " + stats.getRating5());
 		
-		stats.calcAvgRating();
+		stats.calcAll();
 		println("Average Rating: " + stats.getAvgRating());
 		println("Ratings count: " + stats.getRatingCount());
 		println("Total Downloads: " + stats.getTotalDownloads());
