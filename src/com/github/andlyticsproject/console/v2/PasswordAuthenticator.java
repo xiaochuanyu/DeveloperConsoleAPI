@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
@@ -81,7 +80,7 @@ public class PasswordAuthenticator extends BaseAuthenticator {
 
 			response = httpClient.execute(post);
 			int status = response.getStatusLine().getStatusCode();
-			if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
+			if (status != HttpStatus.SC_OK) {
 				throw new AuthenticationException("Auth error: " + response.getStatusLine());
 			}
 

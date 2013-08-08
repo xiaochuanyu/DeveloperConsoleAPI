@@ -48,6 +48,7 @@ public class Main {
 		AppDetails details = app.getDetails();
 		println("Description:\n" + details.getDescription());
 		println("Change Log: " + details.getChangelog());
+		println("Last Update: " + details.getLastStoreUpdate());
 
 		AppStats stats = app.getLatestStats();
 		println("Active Installs: " + stats.getActiveInstalls());

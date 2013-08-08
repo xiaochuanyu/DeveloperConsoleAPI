@@ -1,13 +1,8 @@
 package com.github.andlyticsproject.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 
 public class AppDetails {
-
-	private Long id;
 
 	private String description;
 	private String changelog;
@@ -27,14 +22,6 @@ public class AppDetails {
 
 	public AppDetails(String description) {
 		this(description, null, (Date) null);
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getDescription() {
