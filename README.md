@@ -1,5 +1,4 @@
-Unofficial Google Developer Console API
-===================
+##Unofficial Google Developer Console API
 
 This is still work in progress.
 This is intended to be a Java API for accessing data from Google Play Developer Console.
