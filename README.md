@@ -12,9 +12,8 @@ Sample usage as shown in [test][1]:
 accountName = "yourAccount@email.com";
 password = "yourpassword";
 
-// Initial http client and log-in setup ...
-DefaultHttpClient httpClient = HttpClientFactory.createDevConsoleHttpClient(DevConsoleV2.TIMEOUT);
-DevConsole console = DevConsoleV2.createForAccountAndPassword(accountName, password, httpClient);
+// Initial log-in setup ...
+DevConsole console = DevConsoleV2.createForAccountAndPassword(accountName, password);
 
 // Requst the data ...
 List<AppInfo> appInfo = console.getAppInfo();
