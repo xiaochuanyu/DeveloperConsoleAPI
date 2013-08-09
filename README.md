@@ -46,4 +46,4 @@ println("Average Rating: " + stats.getAvgRating());
 println("Ratings count: " + stats.getRatingCount());
 println("Total Downloads: " + stats.getTotalDownloads());
 ```
-[1]: https://github.com/xiaochuanyu/DeveloperConsoleAPI/blob/master/src/com/github/andlyticsproject/test/Main.java
+[1]: https://github.com/xiaochuanyu/DeveloperConsoleAPI/blob/master/Test/src/com/github/devconsole/test/Main.java
