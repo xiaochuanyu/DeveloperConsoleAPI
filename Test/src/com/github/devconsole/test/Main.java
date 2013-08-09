@@ -24,40 +24,37 @@ public class Main {
 		
 		s.close();
 		
-		println("==========Logging in and grabbing data=============");
+		System.out.println("==========Logging in and grabbing data=============");
 		DevConsole console = DevConsoleV2.createForAccountAndPassword(accountName, password);
 		List<AppInfo> appInfo = console.getAppInfo();
-		println("===================================================");
-		println("");
-		println("Number of apps: " + appInfo.size());
+		System.out.println("===================================================");
+		System.out.println("");
+		System.out.println("Number of apps: " + appInfo.size());
 		
 		AppInfo app = appInfo.get(0);
-		println("Name : " + app.getName());
-		println("Developer name: " + app.getDeveloperName());
-		println("Icon URL : " + app.getIconUrl());
-		println("Package: " + app.getPackageName());
+		System.out.println("Name : " + app.getName());
+		System.out.println("Developer name: " + app.getDeveloperName());
+		System.out.println("Icon URL : " + app.getIconUrl());
+		System.out.println("Package: " + app.getPackageName());
 
 		AppDetails details = app.getDetails();
-		println("Description:\n" + details.getDescription());
-		println("Change Log: " + details.getChangelog());
-		println("Last Store Update: " + details.getLastStoreUpdate());
+		System.out.println("Description:\n" + details.getDescription());
+		System.out.println("Change Log: " + details.getChangelog());
+		System.out.println("Last Store Update: " + details.getLastStoreUpdate());
 
 		AppStats stats = app.getLatestStats();
-		println("Active Installs: " + stats.getActiveInstalls());
-		println("Ratings 1: " + stats.getRating1());
-		println("Ratings 2: " + stats.getRating2());
-		println("Ratings 3: " + stats.getRating3());
-		println("Ratings 4: " + stats.getRating4());
-		println("Ratings 5: " + stats.getRating5());
+		System.out.println("Active Installs: " + stats.getActiveInstalls());
+		System.out.println("Ratings 1: " + stats.getRating1());
+		System.out.println("Ratings 2: " + stats.getRating2());
+		System.out.println("Ratings 3: " + stats.getRating3());
+		System.out.println("Ratings 4: " + stats.getRating4());
+		System.out.println("Ratings 5: " + stats.getRating5());
 		
 		stats.calcAll();
-		println("Average Rating: " + stats.getAvgRating());
-		println("Ratings count: " + stats.getRatingCount());
-		println("Total Downloads: " + stats.getTotalDownloads());
+		System.out.println("Average Rating: " + stats.getAvgRating());
+		System.out.println("Ratings count: " + stats.getRatingCount());
+		System.out.println("Total Downloads: " + stats.getTotalDownloads());
 
 	}
 
-	private static <T> void println(T t) {
-		System.out.println(t);
-	}
 }
