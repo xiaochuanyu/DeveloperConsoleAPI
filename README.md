@@ -1,9 +1,8 @@
 ##Unofficial Google Developer Console API
 
-This is still work in progress.
-This is intended to be a Java API for accessing data from Google Play Developer Console.
-This has been done in making Andlytics (https://github.com/AndlyticsProject/andlytics), an android app that lets you see stats from Dev Console.
-In fact, all the original code is taken straight from Andlytics except with all android dependencies removed.
+Java API for accessing data from Google Play Developer Console.
+
+Code is pretty much copied from Andlytics (https://github.com/AndlyticsProject/andlytics), an android app that lets you see stats from Dev Console.
 
 Sample usage as shown in [test][1]:
 ```java
