@@ -1,6 +1,6 @@
-Copyright 2012 Timelappse
-Copyright 2012 Andlytics Project
-Copyright 2013 Xiao Chuan Yu
+Copyright 2012 Timelappse<br>
+Copyright 2012 Andlytics Project<br>
+Copyright 2013 Xiao Chuan Yu<br>
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
