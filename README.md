@@ -4,6 +4,12 @@ Java API for accessing data from Google Play Developer Console.
 
 Code is pretty much copied from Andlytics (https://github.com/AndlyticsProject/andlytics), an android app that lets you see stats from Dev Console.
 
+##Install
+
+Include [DeveloperConsoleAPI-0.1.0.jar][2] in your project build path.
+
+##Usage
+
 Sample usage as shown in [test][1]:
 ```java
 // ...
@@ -43,4 +49,11 @@ System.out.println("Average Rating: " + stats.getAvgRating());
 System.out.println("Ratings count: " + stats.getRatingCount());
 System.out.println("Total Downloads: " + stats.getTotalDownloads());
 ```
+## How It Works
+
+First, the API emulates a browser logging into your Google Developer Console(GDC).<br>
+Then, it then scrapes data from GDC by emulating GWT remote procedure calls(RPC) made by GDC (which was made using GWT).<br>
+The meaning of GWT RPCs parameters and return values were reversed engineered by hand by simply inspecting network traffic while browsing GDC (F12 Network tab in Chrome).<br>
+
 [1]: https://github.com/xiaochuanyu/DeveloperConsoleAPI/blob/master/Test/src/com/xiao/devconsole/test/Main.java
+[2]: https://github.com/xiaochuanyu/DeveloperConsoleAPI/blob/master/DeveloperConsoleAPI-0.1.0.jar
