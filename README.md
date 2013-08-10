@@ -6,7 +6,7 @@ Code is pretty much copied from Andlytics (https://github.com/AndlyticsProject/a
 
 ##Install
 
-Include DeveloperConsoleAPI-0.1.0.jar in your project build path.
+Include [DeveloperConsoleAPI-0.1.0.jar][2] in your project build path.
 
 ##Usage
 
@@ -57,3 +57,4 @@ Then, it then scrapes data from GDC by emulating GWT remote procedure calls(RPC)
 The meaning of GWT RPCs parameters and return values were reversed engineered by hand by simply inspecting network traffic while browsing GDC (F12 Network tab in Chrome).<br>
 
 [1]: https://github.com/xiaochuanyu/DeveloperConsoleAPI/blob/master/Test/src/com/github/devconsole/test/Main.java
+[2]: https://github.com/xiaochuanyu/DeveloperConsoleAPI/blob/master/DeveloperConsoleAPI-0.1.0.jar
