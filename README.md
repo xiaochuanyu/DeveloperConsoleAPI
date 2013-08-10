@@ -49,4 +49,12 @@ System.out.println("Average Rating: " + stats.getAvgRating());
 System.out.println("Ratings count: " + stats.getRatingCount());
 System.out.println("Total Downloads: " + stats.getTotalDownloads());
 ```
+
+## How It Works
+
+Frist, the API emulates a browser loggin into your Google Developer Console(GDC).
+Then, it emulates GWT remote procedure calls(RPC) made by GDC (which was made using GWT) and parses the response. 
+You can tell GDC uses GWT by inspecting page source and search for the string "gwt".
+The meaning of GWT RPCs parameters and return values were reversed engineered by hand by simply recording and analyzing network activity of the browser while browsing GDC.
+
 [1]: https://github.com/xiaochuanyu/DeveloperConsoleAPI/blob/master/Test/src/com/github/devconsole/test/Main.java
