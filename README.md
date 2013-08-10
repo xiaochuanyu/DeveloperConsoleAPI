@@ -52,8 +52,8 @@ System.out.println("Total Downloads: " + stats.getTotalDownloads());
 
 ## How It Works
 
-Frist, the API emulates a browser logging into your Google Developer Console(GDC) storing and setting the neccessary cookies and HTTP headers.
-Then, it then scraps data from GDC by emulating GWT remote procedure calls(RPC) made by GDC (which was made using GWT).
-The meaning of GWT RPCs parameters and return values were reversed engineered by hand by simply recording and analyzing network activity of the browser while browsing GDC (F12 Network tab in Chrome).
+Fist, the API emulates a browser logging into your Google Developer Console(GDC) by storing and setting the neccessary cookies and HTTP headers.
+Then, it then scrapes data from GDC by emulating GWT remote procedure calls(RPC) made by GDC (which was made using GWT).
+The meaning of GWT RPCs parameters and return values were reversed engineered by hand by simply inspecting network traffic while browsing GDC (F12 Network tab in Chrome).
 
 [1]: https://github.com/xiaochuanyu/DeveloperConsoleAPI/blob/master/Test/src/com/github/devconsole/test/Main.java
