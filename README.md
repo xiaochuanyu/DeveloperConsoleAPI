@@ -43,4 +43,4 @@ System.out.println("Average Rating: " + stats.getAvgRating());
 System.out.println("Ratings count: " + stats.getRatingCount());
 System.out.println("Total Downloads: " + stats.getTotalDownloads());
 ```
-[1]: https://github.com/xiaochuanyu/DeveloperConsoleAPI/blob/master/Test/src/com/github/devconsole/test/Main.java
+[1]: https://github.com/xiaochuanyu/DeveloperConsoleAPI/blob/master/Test/src/com/xiao/devconsole/test/Main.java
