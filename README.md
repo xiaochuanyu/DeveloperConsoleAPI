@@ -1,14 +1,14 @@
-##Unofficial Google Developer Console API
+## Unofficial Google Developer Console API
 
 Java API for accessing data from Google Play Developer Console.
 
 Code is pretty much copied from Andlytics (https://github.com/AndlyticsProject/andlytics), an android app that lets you see stats from Dev Console.
 
-##Install
+## Install
 
 Include [DeveloperConsoleAPI-0.1.0.jar][2] in your project build path.
 
-##Usage
+## Usage
 
 Sample usage as shown in [test][1]:
 ```java
